@@ -1,0 +1,28 @@
+#! /usr/bin/env bash
+
+sleep 1
+
+# vars 
+XSCT_TEMP=4500
+export $(dbus-launch)
+xrdb ~/.Xresources
+
+# set wallpaper 
+nitrogen --restore 
+
+# start compositor 
+picom --config ~/.config/picom/picom.conf --experimental-backends -b 
+
+# start polybar
+# nord
+
+# set night light 
+xsct $XSCT_TEMP
+
+# start kde connect 
+# /usr/lib/kdeconnectd & 
+
+# late startup 
+xset led named "Scroll Lock"
+xmodmap -e "keysym Menu = Super_R"
+
