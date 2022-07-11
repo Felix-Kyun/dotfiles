@@ -13,45 +13,22 @@ require("awful.hotkeys_popup.keys")
 local function conf(libname)
   require("config." .. libname)
 end
-
-conf("vars")
-conf("core.handle_err")
-conf("theme.theme")
-
+local function split_conf(libname)
+  require("config.core.split." .. libname)
+end
 local bin = "/home/felix/.local/bin/"
 
-conf("core.split.layouts")
-
-conf("core.split.wibar")
-
-conf("core.split.mouse")
+conf("vars")            --load variables
+conf("core.handle_err") -- handle err 
+conf("theme.theme")     -- load theme
+split_conf("layouts")   -- load layouts
+split_conf("wibar")     -- load wibar
+split_conf("mouse")     -- load mouse bindings 
+-- conf("keys.")
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-    awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
-              {description="show help", group="awesome"}),
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
-              {description = "view previous", group = "tag"}),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
-              {description = "view next", group = "tag"}),
-    awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
-              {description = "go back", group = "tag"}),
-
-    awful.key({ modkey,           }, "j",
-        function ()
-            awful.client.focus.byidx( 1)
-        end,
-        {description = "focus next by index", group = "client"}
-    ),
-    awful.key({ modkey,           }, "k",
-        function ()
-            awful.client.focus.byidx(-1)
-        end,
-        {description = "focus previous by index", group = "client"}
-    ),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
-
+    conf("keys.workspace"),
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
               {description = "swap with next client by index", group = "client"}),
