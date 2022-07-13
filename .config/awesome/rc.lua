@@ -16,6 +16,7 @@ end
 local function split_conf(libname)
   require("config.core.split." .. libname)
 end
+
 local bin = "/home/felix/.local/bin/"
 
 conf("vars")            --load variables
@@ -26,9 +27,14 @@ split_conf("wibar")     -- load wibar
 split_conf("mouse")     -- load mouse bindings 
 -- conf("keys.")
 
+-- load key binds
+local wm_keys = require("config.keys.workspace")
+-- local layout_keys = require("config.keys.")
+-- local layout_keys = require("config.keys.")
+
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-    conf("keys.workspace"),
+    wm_keys, 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
               {description = "swap with next client by index", group = "client"}),
@@ -108,6 +114,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"})
 )
+
 
 clientkeys = gears.table.join(
     awful.key({ modkey,           }, "f",

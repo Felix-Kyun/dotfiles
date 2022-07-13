@@ -1,0 +1,116 @@
+
+
+
+
+# VARIABLES
+set $mod Mod4
+set $launcher rofi -no-lazy-grab -show drun -modi drun -theme ~/.config/rofi/nord/style_7.rasi
+set $browser brave
+set $ss scrot 
+set $lock lock
+set $xstart /home/felix/.xstartup 
+set $power /home/felix/.config/rofi/nord/powermenu.sh
+set $appChange rofi -no-lazy-grab -show windowcd -modi windowcd -theme ~/.config/rofi/nord/style_7.rasi
+set $run rofi -show run -modi run -theme ~/.config/rofi/nord/style_7.rasi
+set $file rofi -show filebrowser -modi filebrowser -theme ~/.config/rofi/nord/style_7.rasi
+
+# CONFIG 
+font pango:FiraCode Nerd Font 8
+floating_modifier $mod 
+for_window [class=".*"] border pixel 0 #*
+gaps inner 10
+gaps outer 1
+gaps top 21
+border_radius 3
+smart_gaps on
+
+# KEYBINDINGS
+
+## WINDOW MANAGER SPECIFIC 
+bindsym $mod+q kill
+bindsym $mod+r reload
+bindsym $mod+Shift+r restart
+bindsym Mod1+Tab exec $appChange
+
+## APP SPECIFIC 
+bindsym $mod+Return exec urxvt
+bindsym $mod+BackSpace exec $power 
+bindsym $mod+l exec $lock
+bindsym $mod+Shift+Return exec $launcher
+bindsym $mod+b exec $browser
+bindsym $mod+0 exec $ss
+bindsym $mod+x exec $run
+bindsym $mod+z exec $file
+bindsym $mod+p exec polyhide 
+
+# GENERAL WM RELATED STUFF
+
+### ACTIVE WINDOW 
+bindsym $mod+a focus left
+bindsym $mod+s focus down
+bindsym $mod+w focus up
+bindsym $mod+d focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+### SHIFT WINDOW
+bindsym $mod+Shift+a move left
+bindsym $mod+Shift+s move down
+bindsym $mod+Shift+w move up
+bindsym $mod+Shift+d move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+### WINDOW SPLIT MODE 
+bindsym $mod+v split v
+bindsym $mod+h split h
+
+### FULLSCREEN
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+space floating toggle
+bindsym $mod+Shift+c focus mode_toggle
+
+## WORKSPACE RELATED
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+
+
+mode "V-resize" {
+  bindsym w resize grow height 5 px or 5 ppt
+  bindsym s resize shrink height 5 px or 5 ppt
+  bindsym Escape mode "default"
+  }
+bindsym $mod+Shift+v mode "V-resize"
+
+mode "H-resize" {  
+  bindsym w resize grow width 5 px or 5 ppt
+  bindsym s resize shrink width 5 px or 5 ppt
+  bindsym Escape mode "default"
+  }
+bindsym $mod+Shift+h mode "H-resize"
+
+exec --no-startup-id $xstart
