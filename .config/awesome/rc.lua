@@ -29,12 +29,14 @@ split_conf("mouse")     -- load mouse bindings
 
 -- load key binds
 local wm_keys = require("config.keys.workspace")
+local user_apps = require("config.keys.user_apps")
 -- local layout_keys = require("config.keys.")
 -- local layout_keys = require("config.keys.")
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-    wm_keys, 
+    wm_keys,
+    user_apps,
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
               {description = "swap with next client by index", group = "client"}),
@@ -97,9 +99,6 @@ globalkeys = gears.table.join(
     -- Prompt
     awful.key({ modkey, "Shift"},            "Return",     function () awful.util.spawn(bin .. "launcher") end,
               {description = "run prompt", group = "launcher"}),
-    -- browser 
-    awful.key({modkey}, "b", function() awful.util.spawn("brave") end, {description = "brave", group = "applications"}),
-
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run {
