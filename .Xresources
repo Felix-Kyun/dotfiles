@@ -1,0 +1,86 @@
+#define nord0 #2E3440
+#define nord1 #3B4252
+#define nord2 #434C5E
+#define nord3 #4C566A
+#define nord4 #D8DEE9
+#define nord5 #E5E9F0
+#define nord6 #ECEFF4
+#define nord7 #8FBCBB
+#define nord8 #88C0D0
+#define nord9 #81A1C1
+#define nord10 #5E81AC
+#define nord11 #BF616A
+#define nord12 #D08770
+#define nord13 #EBCB8B
+#define nord14 #A3BE8C
+#define nord15 #B48EAD
+
+*.color0: nord1
+*.color1: nord11
+*.color2: nord14
+*.color3: nord13
+*.color4: nord9
+*.color5: nord15
+*.color6: nord8
+*.color7: nord5
+*.color8: nord3
+*.color9: nord11
+*.color10: nord14
+*.color11: nord13
+*.color12: nord9
+*.color13: nord15
+*.color14: nord7
+*.color15: nord6
+
+*.foreground:   nord4
+*.background:   [90]nord0
+*.cursorColor:  nord4
+!*fading: 35
+!*fadeColor: nord1
+
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
+
+URxvt.scrollBar: false
+URxvt.font: xft:FiraCode Nerd Font:style=Regular:pixelsize=14:minispace=False:antialias=true
+!URxvt.letterSpace: -1
+
+URxvt.internalBorder:  10
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: true
+URxvt.depth:             32
+URxvt.saveLines:         10000
+URxvt*geometry:          80x25
+URxvt*terminalName:      urxvt
+URxvt*visualBell:        false
+
+
+URxvt*scrollTtyOutput: true
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
+URxvt.iso14755:            false
+URxvt.iso14755_52:         false
+URxvt.keysym.C-Up:     \033[1;5A
+URxvt.keysym.C-Down:   \033[1;5B
+URxvt.keysym.C-Right:  \033[1;5C
+URxvt.keysym.C-Left:   \033[1;5D
+URxvt.keysym.C-Prior:  \033[5;5~
+URxvt.keysym.C-Next:   \033[6;5~
+URxvt.keysym.C-Home:   \033[7;5~
+URxvt.keysym.C-End:    \033[8;5~
+
+! resize font config
+urxvt.perl-ext-common: default,tabbed,matcher,resize-font,-tabbed
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-plus:      resize-font:bigger
+URxvt.keysym.C-equal:     resize-font:reset
+URxvt.keysym.C-question:  resize-font:show
+URxvt.resize-font.step: 0.5
+! set control^[c|v]
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
