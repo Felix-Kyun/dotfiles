@@ -1,7 +1,37 @@
+-- Configure Wibar Here 
 local awful = require("awful")
+local beautiful = require("beautiful") -- theme lib
+local menubar = require("menubar")
+local wibox = require("wibox") -- widget and layout lib
 local gears = require("gears")
-local beautiful = require("beautiful")
-local wibox = require("wibox")
+require("awful.hotkeys_popup.keys")
+local hotkeys_popup = require("awful.hotkeys_popup")
+local terminal = require("config.vars").terminal 
+local editor_cmd = require("config.vars").editor_cmd
+
+myawesomemenu = {
+   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
+   { "manual", terminal .. " -e man awesome" },
+   { "edit config", editor_cmd .. " " .. awesome.conffile },
+   { "restart", awesome.restart },
+   { "quit", function() awesome.quit() end },
+}
+
+mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+                                    { "open terminal", terminal }
+                                  }
+                        })
+
+mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
+                                     menu = mymainmenu })
+
+-- Menubar configuration
+menubar.utils.terminal = terminal -- Set the terminal for applications that require it
+-- }}}
+
+-- Keyboard map indicator and switcher
+mykeyboardlayout = awful.widget.keyboardlayout()
+
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()

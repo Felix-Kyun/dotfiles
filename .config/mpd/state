@@ -3,7 +3,7 @@ audio_device_state:1:pulse audio
 audio_device_state:1:ncmpcpp visualizer
 state: pause
 current: 4
-time: 76.466000
+time: 128.851000
 random: 0
 repeat: 1
 single: 0

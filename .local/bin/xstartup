@@ -11,7 +11,7 @@ xrdb ~/.Xresources
 nitrogen --restore 
 
 # start compositor 
-picom --config ~/.config/picom/picom.conf --experimental-backends -b 
+picom -b 
 
 # start polybar
 # nord
