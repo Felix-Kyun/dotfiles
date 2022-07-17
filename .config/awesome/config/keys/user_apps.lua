@@ -20,11 +20,17 @@ Template For Defining Key Binding
 --]]
 
 local _M = gears.table.join(
-  -- brave
+  -- browser {depends: brave}
   awful.key(
   {modkey}, "b",
   function() awful.util.spawn("brave") end,
   {description = "brave", group = "applications"}
+  ),
+  -- screenshot {depends: scrot}
+  awful.key(
+  {}, "Print",
+  function () awful.util.spawn("scrot")  end,
+  {description = "Take ScreenShot", group = "applications"}
   )
 )
 

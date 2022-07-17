@@ -1,9 +1,9 @@
-sw_volume: 52
+sw_volume: 26
 audio_device_state:1:pulse audio
 audio_device_state:1:ncmpcpp visualizer
 state: pause
-current: 9
-time: 15.006000
+current: 4
+time: 39.831000
 random: 0
 repeat: 1
 single: 0
@@ -37,4 +37,12 @@ playlist_begin
 22:nightcore/Nightcore_Closer_Female_Version_.m4a
 23:nightcore/Nightcore_Enemy_Female_Version_Lyrics_.m4a
 24:nightcore/Nightcore_Fire_Lyrics.m4a
+25:nightcore/Nightcore_Who_Am_I_Lyrics.m4a
+26:nightcore/Nightcore-All_My_Friends_Are_Fake_Lyrics_.m4a
+27:nightcore/Nightcore-Bad_Boys-Lyrics_.m4a
+28:nightcore/Nightcore-Beautiful_Now-Lyrics_.m4a
+29:nightcore/Nightcore-Battlefield_Lyrics_.m4a
+30:nightcore/Nightcore-Broken-Lyrics_.m4a
+31:nightcore/Nightcore-DARKSIDE_lyrics.m4a
+32:nightcore/Nightcore-Die_For_You_Lyrics_.m4a
 playlist_end

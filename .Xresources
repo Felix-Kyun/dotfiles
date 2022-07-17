@@ -38,7 +38,7 @@
 !*fading: 35
 !*fadeColor: nord1
 
-Xft.dpi: 96
+Xft.dpi: 84
 Xft.antialias: true
 Xft.hinting: true
 Xft.rgba: rgb
@@ -47,7 +47,7 @@ Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 
 URxvt.scrollBar: false
-URxvt.font: xft:FiraCode Nerd Font:style=Regular:pixelsize=14:minispace=False:antialias=true
+URxvt.font: xft:FiraCode Nerd Font:style=Regular:pixelsize=13:minispace=False:antialias=true
 !URxvt.letterSpace: -1
 
 URxvt.internalBorder:  10

@@ -1,4 +1,7 @@
 #! /usr/bin/env bash
+xrandr --newmode "1360x765_60.00"   84.50  1360 1432 1568 1776  765 768 773 795 -hsync +vsync
+xrandr --addmode VGA1 "1360x765_60.00"
+xrandr --output VGA1 --mode "1360x765_60.00"
 
 sleep 1
 
@@ -11,7 +14,7 @@ xrdb ~/.Xresources
 nitrogen --restore 
 
 # start compositor 
-picom -b 
+picom --experimental-backend -b 
 
 # start polybar
 # nord
