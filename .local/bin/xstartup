@@ -6,7 +6,8 @@ xrandr --output VGA1 --mode "1360x765_60.00"
 sleep 1
 
 # vars 
-XSCT_TEMP=4500
+XSCT_TEMP=4500 # default 6500
+BRIGHTNESS=0.4 # default 1.0
 export $(dbus-launch)
 xrdb ~/.Xresources
 
@@ -20,7 +21,8 @@ picom --experimental-backend -b
 # nord
 
 # set night light 
-xsct $XSCT_TEMP
+# xsct $XSCT_TEMP
+xrandr --output VGA1 --brightness $BRIGHTNESS
 
 # start kde connect 
 # /usr/lib/kdeconnectd & 
@@ -28,4 +30,9 @@ xsct $XSCT_TEMP
 # late startup 
 xset led named "Scroll Lock"
 xmodmap -e "keysym Menu = Super_R"
+# xmodmap -e "keysym Caps_Lock = Escape"
 
+
+
+sleep 5
+awesome-client ' awesome.restart() '

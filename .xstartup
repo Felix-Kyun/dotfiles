@@ -1,27 +1,29 @@
 #! /usr/bin/env bash
 
-sleep 1
+# sleep 1
 
 ## nitrogen [for wallpaper]
 # nitrogen --restore &
 
 ## picom [for composting]
-picom --config ~/.config/picom/picom.conf --experimental-backends -b
+# picom --config ~/.config/picom/picom.conf --experimental-backends -b
 
 ## polybar [for status bar]
 #startpoly &
 #nord
 #=
 # set screen tempreature
-xsct 4500
+# xsct 4500
 
 ## kde-connect [for connecting to android]
-/usr/lib/kdeconnectd &
+# /usr/lib/kdeconnectd &
 
 
 ### late startup 
-sleep 5  
+# sleep 5  
 
 # set led on 
-xset led named "Scroll Lock"
-xmodmap -e "keysym Menu = Super_R"
+# xset led named "Scroll Lock"
+# xmodmap -e "keysym Menu = Super_R"
+
+awesome-client ' awesome.restart() '

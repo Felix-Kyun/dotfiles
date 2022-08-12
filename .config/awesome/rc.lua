@@ -1,3 +1,4 @@
+--  vim:fileencoding=utf-8:foldmethod=marker
 pcall(require, "luarocks.loader")
 
 local gears = require("gears")
@@ -30,13 +31,16 @@ split_conf("mouse")     -- load mouse bindings
 -- load key binds
 local wm_keys = require("config.keys.workspace")
 local user_apps = require("config.keys.user_apps")
+local kp_bind = require("config.keys.wm")
 -- local layout_keys = require("config.keys.")
 -- local layout_keys = require("config.keys.")
+-- require("config.core.titlebar")
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
     wm_keys,
     user_apps,
+    kp_bind,
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
               {description = "swap with next client by index", group = "client"}),
@@ -345,16 +349,17 @@ client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", {raise = false})
 end)
 
+-- border shaping {{{
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 client.connect_signal("manage", function (c)
     c.shape = function(cr,w,h)
-        gears.shape.rounded_rect(cr,w,h,5)
+        gears.shape.rounded_rect(cr,w,h,0)
     end
 end)
 -- }}}
---
---
+require("config.widgets.first")
+
 -- auto startup
 awful.spawn.with_shell(bin .. "xstartup ")
 -- local autostart = require("autostart")

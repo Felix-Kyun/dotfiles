@@ -1,6 +1,6 @@
 
 
-terminal = "urxvt"
+terminal = "/home/felix/.local/bin/kitten"
 
 editor = os.getenv("EDITOR") or "nvim"
 
@@ -12,7 +12,8 @@ local _M = {
   modkey = "Mod4",
   terminal = "urxvt",
   editor = os.getenv("EDITOR") or "nvim",
-  editor_cmd = "urxvt" .. " -e " .. editor
+  editor_cmd = "urxvt" .. " -e " .. editor,
+  bin = "/home/felix/.local/bin/"
 }
 
 return _M
