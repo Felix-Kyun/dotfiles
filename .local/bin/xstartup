@@ -29,10 +29,7 @@ xrandr --output VGA1 --brightness $BRIGHTNESS
 
 # late startup 
 xset led named "Scroll Lock"
+xset s 150
 xmodmap -e "keysym Menu = Super_R"
 # xmodmap -e "keysym Caps_Lock = Escape"
 
-
-
-sleep 5
-awesome-client ' awesome.restart() '

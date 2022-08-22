@@ -93,6 +93,10 @@ local _M = gears.table.join(
   {modkey, control}, "KP_Right",
   function() awful.tag.incmwfact( 0.05) end,
   {description = "", group = "Keypad Shortcuts"}
+  ),
+  awful.key(
+  { modkey, }, "Tab",
+  function() awful.client.focus.byidx( 1) end, {}
   )
 
   --}}

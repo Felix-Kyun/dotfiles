@@ -40,8 +40,28 @@ local _M = gears.table.join(
   -- screenshot {depends: scrot}
   awful.key(
   {}, "Print",
-  function () awful.spawn.with_shell(bin .. "sscrot")  end,
+  function () awful.spawn.with_shell("rofi-screenshot")  end,
   {description = "Take ScreenShot", group = "applications"}
+  ),
+  awful.key(
+  {}, "XF86AudioPause",
+  function() awful.spawn.with_shell('playerctl play-pause') end,
+  {description = 'pause media', }
+  ),
+  awful.key(
+  {}, "XF86AudioPlay",
+  function() awful.spawn.with_shell('playerctl play-pause') end,
+  {description = 'play media', }
+  ),
+  awful.key(
+  {modkey}, "z",
+  function() awful.spawn.with_shell('rofi-bluetooth') end,
+  {description = 'rofi bluetooth menu', }
+  ),
+  awful.key(
+  {modkey}, ";",
+  function() awful.spawn.with_shell('todofi.sh') end,
+  {description = 'rofi todo manager', }
   )
 )
 

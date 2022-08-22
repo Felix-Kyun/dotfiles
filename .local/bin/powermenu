@@ -1,1 +1,1 @@
-~/.config/rofi/nord/powermenu.sh
+rofi -show power-menu -modi power-menu:rofi-power-menu
