@@ -13,3 +13,8 @@ alias bright="xrandr --output VGA1 --brightness "
 alias gs="git status --short"
 alias c="clear;pfetch"
 alias p="sudo pacman"
+
+
+# edit dots 
+alias en="cd .config/nvim; nvim"
+alias ez="nvim ~/.zshrc"

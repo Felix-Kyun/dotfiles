@@ -4,9 +4,10 @@
 --  db.preview_command = 'ueberzug'
 --  db.preview_file_path = home .. '/Media/pictures/download.jpeg'
 --
-  db.preview_command = 'cat | lolcat -F 0.3'
+  -- db.preview_command = 'cat | lolcat -F 0.3'
+  db.preview_command = 'tput setaf 6; cat '
   db.preview_file_path = home .. '/.config/nvim/static/neovim.cat'
-  db.preview_file_height = 15
+  db.preview_file_height = 14
   db.preview_file_width = 40
   db.custom_center = {
       {icon = '  ',
@@ -31,6 +32,6 @@
       shortcut = 'SPC f w'},
       {icon = '  ',
       desc = 'Open Personal dotfiles                  ',
-      action = 'Telescope dotfiles path=' .. home ..'/.dotfiles',
+      action = 'Telescope dotfiles path=' .. home ..'/.config',
       shortcut = 'SPC f d'},
     }
