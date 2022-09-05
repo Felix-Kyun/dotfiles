@@ -43,17 +43,9 @@ local options = {
   scrolloff = 8,                           -- is one of my fav
   sidescrolloff = 8,
   softtabstop = 2,
+  lazyredraw = true,
+  shell = '/bin/bash',
 }
 
--- vim.g.nord_contrast = true
-vim.g.nord_borders = true
-vim.g.nord_disable_background = true
--- vim.g.nord_enable_sidebar_background =false 
+for k, v in pairs(options) do vim.opt[k] = v end
 vim.opt.shortmess:append "c"
--- vim.cmd[[colorscheme nord]]
-require('nord').set()
-
-
-for k, v in pairs(options) do
-  vim.opt[k] = v
-end

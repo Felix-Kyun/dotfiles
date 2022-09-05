@@ -62,6 +62,11 @@ local _M = gears.table.join(
   {modkey}, ";",
   function() awful.spawn.with_shell('todofi.sh') end,
   {description = 'rofi todo manager', }
+  ),
+  awful.key(
+  {modkey}, 'KP_End',
+  function() awful.spawn.with_shell(bin .. 'display') end,
+  {}
   )
 )
 

@@ -16,5 +16,5 @@ alias p="sudo pacman"
 
 
 # edit dots 
-alias en="cd .config/nvim; nvim"
+alias en="cd ~/.config/nvim; nvim"
 alias ez="nvim ~/.zshrc"

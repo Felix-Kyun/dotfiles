@@ -36,14 +36,28 @@ nest.applyKeymaps {
     { '<C-k>', '<C-o>k' },
   },
   --}}}
+
   --{{{ visual mode
   {
     mode = 'v',
     { '<leader>zn', ":'<,'>TZNarrow<CR>" },
   },
   --}}}
+
   --{{{tab 
   { '<Tab>', ':BufferLineCycleNext<CR>'},
   { '<S-Tab>', ':BufferLineCyclePrev<CR>'},
+  --}}}
+
+  --{{{misc 
+  { '<up>', '<nop>' },
+  { '<down>', '<nop>' },
+  { '<left>', '<nop>' },
+  { '<right>', '<nop>' },
+  { "<A-h>", '<CMD>NavigatorLeft<CR>' },
+  { "<A-l>", '<CMD>NavigatorRight<CR>' },
+  { "<A-k>", '<CMD>NavigatorUp<CR>' },
+  { "<A-j>", '<CMD>NavigatorDown<CR>' },
+  { "<A-p>", '<CMD>NavigatorPrevious<CR>' },
   --}}}
 }

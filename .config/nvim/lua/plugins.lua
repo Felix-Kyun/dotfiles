@@ -7,167 +7,131 @@
 -- 				                  nvim config [plugins.lua]
 
 vim.cmd [[packadd packer.nvim]]
+
 return require('packer').startup(function(use)
-  --packer.nvim 
+
+
+  -- let packer manage itself
   use 'wbthomason/packer.nvim'
 
-  --nord theme 
+  -- nord theme
   use 'shaunsingh/nord.nvim'
+
+  -- nest nvim 
+  use {
+    'LionC/nest.nvim',
+    config = [[require 'config.nest']],
+  }
+
+  -- impatient nvim 
+  use 'lewis6991/impatient.nvim'
 
   -- plenery 
   use 'nvim-lua/plenary.nvim'
 
-  -- web devicons
+  -- web dev icons
   use {
     'kyazdani42/nvim-web-devicons',
-    config = function() require('nvim-web-devicons').setup() end,
+    event = 'VimEnter',
+    config = [[require('nvim-web-devicons')]],
   }
 
-  -- lualine
-  use {
-    "nvim-lualine/lualine.nvim",
-    event = "VimEnter",
-    requires = { 'kyazdani42/nvim-web-devicons' },
-    config = function() require('lualine').setup { options = { theme = 'nord' } }  end,
-  }
-
-  --nvim tree
+  -- nvim tree
   use {
     'kyazdani42/nvim-tree.lua',
     event = 'CursorHold',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-    config = function() require('nvim-tree').setup() end,
+    config = [[require('config.nvim-tree')]],
+  }
+
+  -- lualine 
+  use {
+    "nvim-lualine/lualine.nvim",
+    event = 'VimEnter',
+    config = [[require 'config.lualine']],
   }
 
   -- telescope 
-   use {
-     {
-         'nvim-telescope/telescope.nvim',
-         event = 'CursorHold',
-     },
-     {
-         'nvim-telescope/telescope-fzf-native.nvim',
-         after = 'telescope.nvim',
-         run = 'make',
-         config = function()
-             require('telescope').load_extension('fzf')
-         end,
-     },
-     {
-         'nvim-telescope/telescope-symbols.nvim',
-         after = 'telescope.nvim',
-     },
+  use {
+    'nvim-telescope/telescope.nvim',
+    event = 'CursorHold',
+    -- config = [[require 'config.telescope]],
   }
 
+  use {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    after = 'telescope.nvim',
+    run = 'make',
+    config = [[require('telescope').load_extension 'fzf']],
+  }
+
+  use {
+    'nvim-telescope/telescope-symbols.nvim',
+    after = 'telescope.nvim'
+  }
 
   -- which key
   use {
     "folke/which-key.nvim",
-    config = function() require("which-key").setup() end,
+    event = 'CursorHold',
+    config = [[require 'config.which-key']]
   }
-
-  -- nest 
-  use 'LionC/nest.nvim'
 
   -- dashboard
-  use 'glepnir/dashboard-nvim'
-
-  -- lsp stuff 
   use {
-    'VonHeikemen/lsp-zero.nvim',
-    config = function() require 'config.lsp' end,
-    requires = {
-      -- LSP Support
-      {'neovim/nvim-lspconfig'},
-      {'williamboman/mason.nvim'},
-      {'williamboman/mason-lspconfig.nvim'},
-
-    -- Autocompletion
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-buffer'},
-      {'hrsh7th/cmp-path'},
-      {'saadparwaiz1/cmp_luasnip'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'hrsh7th/cmp-nvim-lua'},
-
-      -- Snippets
-      {'L3MON4D3/LuaSnip'},
-      {'rafamadriz/friendly-snippets'},
-    }
+    'glepnir/dashboard-nvim',
+    event = 'VimEnter',
+    config = [[require 'config.dashboard']]
   }
 
-  -- treesitter
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    event = 'CursorHold',
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-      { 'nvim-treesitter/playground', after = 'nvim-treesitter' },
-      { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter' },
-      { 'nvim-treesitter/nvim-treesitter-refactor', after = 'nvim-treesitter' },
-      { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter' },
-      { 'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter' },
-  }
-
-  -- fidget 
+  --fidget for lsp
   use {
     'j-hui/fidget.nvim',
+    event = 'BufRead',
     after = 'lualine.nvim',
-    config = function()
-      require('fidget').setup()
-    end,
+    config = [[require 'config.fidget']]
   }
 
-  -- indent lien
+  -- indent line 
   use {
     'lukas-reineke/indent-blankline.nvim',
     event = 'BufRead',
+    config = [[require 'config.indent']]
   }
 
-  -- nvim colorizer
+  -- colorizer
   use {
     'norcalli/nvim-colorizer.lua',
     event = 'CursorHold',
-    config = function ()
-      require('colorizer').setup()
-    end
+    config = [[require('colorizer').setup()]]
   }
 
+  -- gitsigns
   use {
     'lewis6991/gitsigns.nvim',
     event = 'BufRead',
-    config = function()
-      require('gitsigns').setup()
-    end
+    config = [[require('gitsigns').setup()]]
   }
 
+  -- navigator
   use {
     'numToStr/Navigator.nvim',
     event = 'CursorHold',
-    config = function () require 'config.nav' end
+    config = [[require('Navigator').setup()]]
   }
 
+  -- hopper
   use {
     'phaazon/hop.nvim',
     event = 'BufRead',
-    config = function () require 'config.hop' end
+    config = [[require 'config.hop']]
   }
 
-  use({
-   'karb94/neoscroll.nvim',
-   event = 'WinScrolled',
-   config = function()
-       require('neoscroll').setup({ hide_cursor = false })
-   end,
-  })
-
+  -- comment
   use {
     'numToStr/Comment.nvim',
     event = 'BufRead',
-    config = function() require('Comment').setup() end
-    }
-
-  -- auto pairs
-
+    config = [[require('Comment').setup()]],
+  }
 
   -- surround 
   use {
@@ -181,53 +145,52 @@ return require('packer').startup(function(use)
     }
   }
 
-  use {
-    'wellle/targets.vim',
-    event = 'BufRead'
-  }
-
+  -- splitjoin
   use {
     'AndrewRadev/splitjoin.vim',
     event = 'CursorHold'
   }
 
-  use {
-    'numToStr/FTerm.nvim',
-    event = 'CursorHold',
-    config = function() require('config.term') end
-  }
-
+  -- autopairs
   use {
 	  "windwp/nvim-autopairs",
     event = 'InsertCharPre',
     after = 'nvim-cmp',
-    config = function() require("nvim-autopairs").setup {} end
+    config = [[require("nvim-autopairs").setup()]]
   }
 
+  -- trouble
   use {
   "folke/trouble.nvim",
   event = 'BufRead',
-  requires = "kyazdani42/nvim-web-devicons",
-  config = function() require("trouble").setup() end
+  config = [[require("trouble").setup()]]
   }
-   --buffer line
-   -- using packer.nvim
-use {
-  'akinsho/bufferline.nvim', 
-  event = 'BufRead',
-  requires = 'kyazdani42/nvim-web-devicons',
-  config = function() require('config.bufferline').setup() end,
-}
-
-  use { 'nvim-lua/popup.nvim' }
-
-  use 'lewis6991/impatient.nvim'
-
+  
+  -- terminal
   use {
-    'Pocco81/true-zen.nvim',
-    config = function() require('true-zen').setup() end,
-    event = 'BufRead',
+    "akinsho/toggleterm.nvim",
+    event = 'CursorHold',
+    config = [[require('toggleterm').setup()]],
   }
 
-  config = { display = { open_fn = function() return require('packer.util').float({ border = single }) end } }
+  -- neoscroll
+  use{
+   'karb94/neoscroll.nvim',
+   event = 'WinScrolled',
+   config = [[require('neoscroll').setup({ hide_cursor = false })]],
+  }
+
+
 end)
+
+
+--[[
+
+TODO
+- targets.nvim
+- null-ls
+- mason
+- nvim cmp
+- terminal
+
+--]]

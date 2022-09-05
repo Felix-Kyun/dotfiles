@@ -38,6 +38,8 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 path+=('/home/felix/.local/bin')
 
+eval "$(luajit ~/.oh-my-zsh/custom/plugins/z.lua/z.lua --init zsh enhanced once fzf )"
+
 # Enable Other Configs
 . ~/.zsh_aliases
 . ~/.zsh_vars

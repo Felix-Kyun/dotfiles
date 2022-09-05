@@ -7,10 +7,8 @@
 -- 				nvim config [init.lua]
 
 require 'impatient'
-
+require 'theme'
 require 'options'
 require 'plugins'
 require 'keys'
-require 'config/nest'
-require 'config/dashboard'
--- require 'config/lsp'
+require 'disable-plugins'

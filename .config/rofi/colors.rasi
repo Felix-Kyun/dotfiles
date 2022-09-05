@@ -11,9 +11,9 @@
  */
 
 * {
-  bg: #2E3440;
-  bg-alt: #3B4252;
+  bg: #2E344055;
+  bg-alt: #3B425255;
   fg: #D8DEE9;
   fg-alt: #E5E9F0;
-  bc: #5E81AC;
+  bc: #5E81AC99;
 }

@@ -1,9 +1,9 @@
-sw_volume: 45
+sw_volume: 41
 audio_device_state:1:pulse audio
 audio_device_state:1:ncmpcpp visualizer
 state: pause
-current: 8
-time: 105.860000
+current: 5
+time: 109.119000
 random: 0
 repeat: 1
 single: 0
@@ -24,4 +24,5 @@ playlist_begin
 9:nightcore/"【Nightcore】→ Who Am I _ Lyrics.m4a
 10:nightcore/"「Nightcore」→ Stitches (Switching Vocals).m4a
 11:nightcore/"「Nightcore」→ Let You Down (Lyrics) ✗ NF.m4a
+12:songs/"Kesha - Take It Off (Lyrics) [Stephen Marcus Bootleg].m4a
 playlist_end

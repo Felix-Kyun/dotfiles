@@ -6,7 +6,7 @@
 --
   -- db.preview_command = 'cat | lolcat -F 0.3'
   db.preview_command = 'tput setaf 6; cat '
-  db.preview_file_path = home .. '/.config/nvim/static/neovim.cat'
+  db.preview_file_path = home .. '/.config/nvim/lua/config/dashboard_logo.cat'
   db.preview_file_height = 14
   db.preview_file_width = 40
   db.custom_center = {
@@ -35,3 +35,4 @@
       action = 'Telescope dotfiles path=' .. home ..'/.config',
       shortcut = 'SPC f d'},
     }
+
