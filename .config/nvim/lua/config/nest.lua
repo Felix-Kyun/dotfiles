@@ -1,3 +1,4 @@
+--  vim:fileencoding=utf-8:foldmethod=marker
 local nest = require 'nest'
 
 nest.applyKeymaps {
@@ -24,6 +25,7 @@ nest.applyKeymaps {
 
   --{{{ control
   { '<C-n>', '<CMD>:NvimTreeToggle<CR>', options = { silent = false } },
+  { '<C-`>', ':ToggleTerm direction=float<CR>', options = { silent = false } },
   -- }}} 
 
   --{{{ insert mode 
@@ -60,4 +62,9 @@ nest.applyKeymaps {
   { "<A-j>", '<CMD>NavigatorDown<CR>' },
   { "<A-p>", '<CMD>NavigatorPrevious<CR>' },
   --}}}
+  --{{{
+  { '<S-j>', ':HopWordAC<CR>' },
+  { '<S-k>', ':HopWordBC<CR>' },
+  --}}}
+  { ';;', ':q<CR>' },
 }

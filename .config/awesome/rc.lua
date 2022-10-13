@@ -359,7 +359,7 @@ client.connect_signal("manage", function (c)
     end
 end)
 -- }}}
-require("config.widgets.first")
+-- require("config.widgets.first")
 
 -- auto startup
 awful.spawn.with_shell(bin .. "xstartup ")

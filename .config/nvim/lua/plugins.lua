@@ -155,7 +155,7 @@ return require('packer').startup(function(use)
   use {
 	  "windwp/nvim-autopairs",
     event = 'InsertCharPre',
-    after = 'nvim-cmp',
+    before = 'nvim-cmp',
     config = [[require("nvim-autopairs").setup()]]
   }
 
@@ -165,7 +165,7 @@ return require('packer').startup(function(use)
   event = 'BufRead',
   config = [[require("trouble").setup()]]
   }
-  
+
   -- terminal
   use {
     "akinsho/toggleterm.nvim",
@@ -180,17 +180,64 @@ return require('packer').startup(function(use)
    config = [[require('neoscroll').setup({ hide_cursor = false })]],
   }
 
+  --bufferline
+  use {
+    'akinsho/bufferline.nvim',
+    event = 'BufRead',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function() require('config.bufferline').setup() end,
+  }
 
+  use { 'nvim-lua/popup.nvim' }
+
+  use {
+    'Pocco81/true-zen.nvim',
+    config = function() require('true-zen').setup() end,
+    event = 'BufRead',
+  }
+
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    event = 'CursorHold',
+    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+  }
+
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    config = function() require 'config.lsp' end,
+    requires = {
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},
+      {'williamboman/mason.nvim'},
+      {'williamboman/mason-lspconfig.nvim'},
+
+    -- Autocompletion
+      {'hrsh7th/nvim-cmp'},
+      {'hrsh7th/cmp-buffer'},
+      {'hrsh7th/cmp-path'},
+      {'saadparwaiz1/cmp_luasnip'},
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'hrsh7th/cmp-nvim-lua'},
+
+      -- Snippets
+      {'L3MON4D3/LuaSnip'},
+      {'rafamadriz/friendly-snippets'},
+    }
+  }
+
+  -- context.vim replacemnt with treesitter 
+  use 'nvim-treesitter/nvim-treesitter-context'
+
+
+  -- config = { display = { open_fn = function() return require('packer.util').float({ border = single }) end } }
 end)
 
 
 --[[
-
+after 
 TODO
 - targets.nvim
 - null-ls
 - mason
 - nvim cmp
-- terminal
-
 --]]

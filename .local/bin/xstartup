@@ -28,8 +28,11 @@ xrandr --output VGA1 --brightness $BRIGHTNESS
 # /usr/lib/kdeconnectd & 
 
 # late startup 
-xset led named "Scroll Lock"
+# xset led named "Scroll Lock"
 xset s 150
 xmodmap -e "keysym Menu = Super_R"
 # xmodmap -e "keysym Caps_Lock = Escape"
 
+# option network manager starting
+#nm-applet 
+# better to rely on nmtui or nmcli
