@@ -1,0 +1,33 @@
+#! /usr/bin/env bash 
+
+# Made By Felix Kyun 
+# Simple Script To Manage Display...
+
+HDMI_NAME="HDMI1"
+VGA_NAME="VGA1"
+DP_NAME="DP1"
+
+HDMI_RESOLUTION="1920x1080"
+VGA_RESOLUTION="1360x765_60.00"
+
+VGA_POS_WEN_2ND="232x1080"
+PRIMARY_POS="0x0"
+
+case $1 in 
+  "both")
+    xrandr \
+      --output $HDMI_NAME --mode $HDMI_RESOLUTION --pos $PRIMARY_POS --rotate normal \
+      --output $VGA_NAME --primary --mode $VGA_RESOLUTION --pos $VGA_POS_WEN_2ND --rotate normal
+          ;;
+  "tv")
+    xrandr \
+      --output $HDMI_NAME --primary --mode $HDMI_RESOLUTION --pos $PRIMARY_POS --rotate normal \
+      --output $VGA_NAME --off
+          ;;
+  *)
+    xrandr \
+      --output $HDMI_NAME --off \
+      --output $VGA_NAME --primary --mode $VGA_RESOLUTION --pos $PRIMARY_POS --rotate normal
+          ;;
+esac
+
